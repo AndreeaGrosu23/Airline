@@ -22,10 +22,10 @@ public class Flight {
     static int minPassengers=100;
     static int maxPassengers=250;
 
-    public Flight(Languages language) {
+    public Flight() {
         counter++;
         this.id = counter;
-        this.language = language;
+        this.language = Languages.values()[(int)(Math.random()*Languages.values().length)];
         this.numberPassengers = minPassengers + (int)(random.nextFloat()*(maxPassengers-minPassengers));
     }
 

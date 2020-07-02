@@ -8,7 +8,9 @@ public class Main {
 
         System.out.println("Modeling an Airline's internal structure.");
 
-        Flight flightOne = new Flight(Languages.ENGLISH);
+        Flight flightOne = new Flight();
+
+        System.out.println("The flight's language is " + flightOne.language);
 
         Pilot captainOne = Pilot.createPilot("John Doe", new Date(1987-7-3), "0724546532", 5000,PilotPosition.CAPTAIN);
         Pilot copilotOne = Pilot.createPilot("Joe Doe", new Date(1986-2-13), "0729697772", 4000,PilotPosition.ALL);
@@ -33,6 +35,10 @@ public class Main {
         System.out.println(flightOne.numberPassengers + " passengers on the flight");
 
         System.out.println("Checking if flight is ready to take off...");
+
+        if (flightOne.numberPassengers>220) {
+            System.out.println("Too many pessengers for this flight!");
+        }
 
         if (captainOne.hasCompass() && copilotOne.hasCompass()) {
             System.out.println("Both pilots have compass");
