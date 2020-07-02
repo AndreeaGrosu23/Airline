@@ -1,42 +1,30 @@
 package com.andreeagrosu;
 
 import java.util.Date;
+import java.util.Random;
 
 public abstract class Pilot extends AirlineEmployee {
 
     PilotPosition position;
-    boolean hasCompass;
+    Random random = new Random();
 
-    public Pilot(String name, Date birthdate, PilotPosition position, boolean hasCompass) {
-        super(name, birthdate);
+    public Pilot(String name, Date birthdate, String phoneNumber, double salary, PilotPosition position) {
+        super(name, birthdate, phoneNumber, salary);
         this.position = position;
-        this.hasCompass = hasCompass;
     }
 
-    public static Pilot createPilot(PilotPosition position) {
+    public static Pilot createPilot(String name, Date birthdate, String phoneNumber, double salary,PilotPosition position) {
 
         if (position==PilotPosition.CAPTAIN) {
-            return new Captain();
+            return new Captain(name,birthdate,phoneNumber,salary,position);
         } else if (position==PilotPosition.ALL) {
-            return new Copilot();
+            return new Copilot(name,birthdate,phoneNumber,salary,position);
         }
         return null;
-
     }
 
-    public PilotPosition getPosition() {
-        return position;
+    public boolean hasCompass() {
+        return random.nextBoolean();
     }
 
-    public void setPosition(PilotPosition position) {
-        this.position = position;
-    }
-
-    public boolean isHasCompass() {
-        return hasCompass;
-    }
-
-    public void setHasCompass(boolean hasCompass) {
-        this.hasCompass = hasCompass;
-    }
 }

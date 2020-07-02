@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Captain extends Pilot {
 
-    public Captain(String name, Date birthdate, PilotPosition position, boolean hasCompass) {
-        super(name, birthdate, PilotPosition.CAPTAIN, hasCompass);
+    public Captain(String name, Date birthdate, String phoneNumber, double salary, PilotPosition position) {
+        super(name, birthdate, phoneNumber, salary, PilotPosition.CAPTAIN);
     }
 }
